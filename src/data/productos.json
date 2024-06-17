@@ -5,56 +5,64 @@
         "nombre": "Iphone 15 Pro Max",
         "marca": "Apple",
         "detalle": "Una de las evoluciones más complejas en la historia del iPhone. Esta la primera definición que le daría a un lector a la hora de describir al iPhone 15 Pro Max. Revisando su hoja técnica no se sugieren grandes cambios. Una vez se prueba a fondo y se analiza todo lo que va más allá de la pura spec, se descubre que este iPhone empieza a trazar el nuevo camino que quiere recorrer Apple.",
-        "clasificacion": "Celulares"
+        "clasificacion": "Celulares",
+        "precio": 900
       },
       {
         "id": 2,
         "nombre": "Samsung Galaxy S23 Ultra",
         "marca": "Samsung",
         "detalle": "Cargar con el peso de querer ser el mejor Android del año en pleno mes de febrero no es una tarea sencilla. Samsung presentó el pasado 1 de febrero su Galaxy S23 Ultra, una evolución continuista que rompe con una tradición de cambios bastantes notables en el diseño trasero y hoja técnica. Este es un año de refinamiento, de dejar lo que funcionaba y tratar de pulir puntos débiles.",
-        "clasificacion": "Celulares"
+        "clasificacion": "Celulares",
+        "precio": 850
       },
       {
         "id": 3,
         "nombre": "Xiaomi 14",
         "marca": "Xiaomi",
         "detalle": "Meses después de su lanzamiento en China, Xiaomi ya tiene su móvil de gama premium para occidente. Es una jugada curiosa, pues en 2023 lanzaron el Xiaomi 13 y el Xiaomi 13 Pro con diferencias no sólo en tamaño, sino en sus cámaras. Más tarde llegó el portentoso Xiaomi 13 Ultra.",
-        "clasificacion": "Celulares"
+        "clasificacion": "Celulares",
+        "precio": 650
       },
       {
         "id": 4,
         "nombre": "Apple Ipad 13 Pro",
         "marca": "Apple",
         "detalle": "Potente como ninguno, grande y pesado casi por definición, heredero de una saga reconocible a la legua y todo un exponente de hasta dónde puede llegar Apple en el terreno tablet: el iPad 13 Pro  de 12,9 pulgadas es mayúsculo en su conjunto, también en precio. Ahora bien: ¿realmente está a la altura de su coste?",
-        "clasificacion": "Tablets"
+        "clasificacion": "Tablets",
+        "precio": 1000
       },
       {
         "id": 5,
         "nombre": "Samsung Galaxy Tab S9 Ultra",
         "marca": "Samsung",
         "detalle": "La próxima tableta Galaxy insignia ya está aquí, ¡y es enorme! La Tab S9 Ultra se encuentra entre las pizarras más grandes del mercado y abarca todo lo que Samsung tiene para ofrecer en 2023 en cuanto a diseño, pantalla, hardware y entrada de lápiz.",
-        "clasificacion": "Tablets"
+        "clasificacion": "Tablets",
+        "precio": 750
       },
       {
         "id": 6,
         "nombre": "Xiaomi Redmi Pad Pro 5G",
         "marca": "Xiaomi",
         "detalle": "Hace algo más de un mes Xiaomi presentaba en China su Redmi Pad Pro, la tablet más relevante dentro de la familia Redmi. Una pantalla con alta resolución, procesador de Qualcomm y compatibilidad con los principales periféricos de la marca para convertirla en un gran dispositivo de productividad, eran sus principales claves.",
-        "clasificacion": "Tablets"
+        "clasificacion": "Tablets",
+        "precio": 450
       },
       {
         "id": 7,
         "nombre": "Apple Watch Ultra",
         "marca": "Apple",
         "detalle": "Los rumores se han cumplidos, y Apple ha anunciado su nuevo Apple Watch Ultra. Se trata de un hermano mayor para el Apple Watch Series 8, pero enfocado en los deportes extremos y la durabilidad, tanto física con sus nueva fabricación como de batería con una autonomía mucho mayor.",
-        "clasificacion": "Accesorios"
+        "clasificacion": "Accesorios",
+        "precio": 550
       },
       {
         "id": 8,
         "nombre": "Samsung Galaxy Watch6",
         "marca": "Samsung",
         "detalle": "A primera vista, Samsung se mostró muy dócil con las actualizaciones de su serie Galaxy Watch6. Pero se podría argumentar que la serie Galaxy Watch5 tenía muy pocos problemas y que todas las actualizaciones que obtuvimos fueron útiles o bien pensadas.",
-        "clasificacion": "Accesorios"
+        "clasificacion": "Accesorios",
+        "precio": 390
       }
     ],
   

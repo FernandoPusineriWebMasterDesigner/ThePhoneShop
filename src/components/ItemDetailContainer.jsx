@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { productos } from '../data/productos.json';
-import image1 from "../images/iphone.jpg";
-import image2 from "../images/s23.jpg";
-import image3 from "../images/xiaomi14.jpg";
-import image4 from "../images/ipad.jpg";
-import image5 from "../images/tabletsamsung.jpg";
-import image6 from "../images/xiaomitablet.jpg";
-import image7 from "../images/applewatch.jpg";
-import image8 from "../images/relojsamsung.jpg";
+import image1 from "../../public/images/iphone.jpg";
+import image2 from "../../public/images/s23.jpg";
+import image3 from "../../public/images/xiaomi14.jpg";
+import image4 from "../../public/images/ipad.jpg";
+import image5 from "../../public/images/tabletsamsung.jpg";
+import image6 from "../../public/images/xiaomitablet.jpg";
+import image7 from "../../public/images/applewatch.jpg";
+import image8 from "../../public/images/relojsamsung.jpg";
+import { CartContext } from './Context/CartContext';
 
 export const ItemDetailContainer = () => {
+
+    const {agregarProductoAlCarrito}= useContext(CartContext);
+    
 
     const images = {
         1: image1,
@@ -31,7 +35,14 @@ export const ItemDetailContainer = () => {
         setProducto(productos.find((prod) => prod.id === parseInt(itemId)));
     })
 
-    const { id, nombre, marca, clasificacion, detalle } = producto;
+    const { id, nombre, marca, clasificacion, detalle, precio } = producto;
+
+    const agregarProducto = () => {
+
+        agregarProductoAlCarrito(producto);
+
+    }
+
 
     return (
         <div className='contenedor-informacion-producto'>
@@ -43,7 +54,9 @@ export const ItemDetailContainer = () => {
                 <h2>{nombre}</h2>
                 <h3>Categoria: {clasificacion}</h3>
                 <p>{detalle}</p>
+                <p>Precio: {precio}€</p>
                 <Link to="/" >Volver</Link>
+                <button onClick={agregarProducto}>Agregar al Carrito</button>
             </div>
         </div>
     )

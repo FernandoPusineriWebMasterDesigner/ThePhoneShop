@@ -13,7 +13,7 @@ export const NavBar = () => {
                     clasificacion.map((categoria) => {
                         return (
                             <li key={categoria.id}>
-                                <NavLink to={`/category/${categoria.id}`} className='nav-link' >{categoria.nomre}</NavLink>
+                                <NavLink to={`/category/${categoria.id}`} className='nav-link' >{categoria.nombre}</NavLink>
                             </li>
                         )
                     })

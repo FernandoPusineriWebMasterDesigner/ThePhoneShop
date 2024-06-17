@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
-import image1 from "../images/iphone.jpg";
-import image2 from "../images/s23.jpg";
-import image3 from "../images/xiaomi14.jpg";
-import image4 from "../images/ipad.jpg";
-import image5 from "../images/tabletsamsung.jpg";
-import image6 from "../images/xiaomitablet.jpg";
-import image7 from "../images/applewatch.jpg";
-import image8 from "../images/relojsamsung.jpg";
+import image1 from "../../public/images/iphone.jpg";
+import image2 from "../../public/images/s23.jpg";
+import image3 from "../../public/images/xiaomi14.jpg";
+import image4 from "../../public/images/ipad.jpg";
+import image5 from "../../public/images/tabletsamsung.jpg";
+import image6 from "../../public/images/xiaomitablet.jpg";
+import image7 from "../../public/images/applewatch.jpg";
+import image8 from "../../public/images/relojsamsung.jpg";
+import { CartContext } from './Context/CartContext';
 
 
 export const Item = ({producto}) => {
+
+    const {agregarProductoAlCarrito}= useContext(CartContext);
 
     const images = {
         1: image1,
@@ -29,6 +32,12 @@ export const Item = ({producto}) => {
 
     const { id, nombre, marca, clasificacion } = producto;
 
+    const agregarProducto = () => {
+
+        agregarProductoAlCarrito(producto);
+
+    }
+
     return (
         <div className="producto">
             <img src={images[id]} alt={`Imagen de ${nombre}`} />
@@ -37,6 +46,7 @@ export const Item = ({producto}) => {
                 <h3>Marca: {marca}</h3>
                 <p>Categoria: {clasificacion}</p>
                 <Link to={`/item/${id}`}>Ampliar [+]</Link>
+                <button onClick={agregarProducto}>Agregar al Carrito</button>
             </div>
         </div>
     )

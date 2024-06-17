@@ -6,14 +6,44 @@ import { ItemListContainer } from "./components/ItemListContainer"
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
 import { NotFound } from "./components/NotFound";
 import { Footer } from "./components/footer/Footer";
+import { Carrito } from "./components/Carrito";
+import { CartContext } from "./components/Context/CartContext";
+import { useState } from "react"
 
 
 
 function App() {
+
   
-const valorCarrito = 1 ;
+const [carrito, setCarrito] = useState([]); 
+const valorCarrito = carrito.length ;
+
+const agregarProductoAlCarrito= (producto) => {
+
+  setCarrito ([...carrito,producto]); 
+        
+      
+        actualizarCantidad();
+        
+
+}
+
+const actualizarCantidad= () => {
+
+  return carrito.length;
+  
+
+}
+
+const vaciarCarrito= () => {
+
+  setCarrito([]);
+}
 
   return (
+<>
+
+<CartContext.Provider value={{agregarProductoAlCarrito, actualizarCantidad, vaciarCarrito}}>
     <BrowserRouter>
     <Header valorModificado={valorCarrito}/>
     <Routes>
@@ -24,10 +54,14 @@ const valorCarrito = 1 ;
       }></Route>
       <Route path="/category/:categoryId" element={<ItemListContainer />}></Route>
       <Route path="/item/:itemId" element={<ItemDetailContainer/>}></Route>
+      <Route path="/Carrito" element={<Carrito/>}></Route>
       <Route path="/*" element={<NotFound/>}></Route>
     </Routes>
     <Footer/>
     </BrowserRouter>
+    </CartContext.Provider>
+
+    </>
   )
 }
 
