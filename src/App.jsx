@@ -47,7 +47,7 @@ const vaciarCarrito= () => {
     <BrowserRouter>
     <Header valorModificado={valorCarrito}/>
     <Routes>
-      <Route path="/" element={
+      <Route path='/ThePhoneShop/' element={
         <>
         <ItemListContainer />
         </>
