@@ -10,7 +10,7 @@ export const Header = () => {
     return (
         <header className='header'>
             <div className='header-contenedor'>
-                <Link to="/" className='header-contenedor-logo'><img src={tituloLogo} className='titulo-logo' /></Link>
+                <Link to='/ThePhoneShop/' className='header-contenedor-logo'><img src={tituloLogo} className='titulo-logo' /></Link>
                 <NavBar />
                 <Link to={"../Carrito"}><CartWidget valor={valorModificado}/></Link>
             </div>
