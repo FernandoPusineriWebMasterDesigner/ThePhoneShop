@@ -43,7 +43,7 @@ const vaciarCarrito= () => {
   return (
 <>
 
-<CartContext.Provider value={{agregarProductoAlCarrito, actualizarCantidad, vaciarCarrito}}>
+<CartContext.Provider value={{agregarProductoAlCarrito, actualizarCantidad, vaciarCarrito, carrito}}>
     <BrowserRouter>
     <Header valorModificado={valorCarrito}/>
     <Routes>
