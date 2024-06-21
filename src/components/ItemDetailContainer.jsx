@@ -55,7 +55,7 @@ export const ItemDetailContainer = () => {
                 <h3>Categoria: {clasificacion}</h3>
                 <p>{detalle}</p>
                 <p>Precio: {precio}€</p>
-                <Link to="/" >Volver</Link>
+                <Link to='/ThePhoneShop/' >Volver a Inicio</Link>
                 <button onClick={agregarProducto}>Agregar al Carrito</button>
             </div>
         </div>
