@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom'
 import { ItemList } from './ItemList';
-import { productos } from '../data/productos.json'
+import { productos, clasificacion } from '../data/productos.json'
 
 export const ItemListContainer = () => {
 

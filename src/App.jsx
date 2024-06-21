@@ -8,7 +8,10 @@ import { NotFound } from "./components/NotFound";
 import { Footer } from "./components/footer/Footer";
 import { Carrito } from "./components/Carrito";
 import { CartContext } from "./components/Context/CartContext";
-import { useState } from "react"
+import { useState } from "react";
+import { Celulares } from "./components/header/Celulares";
+import { Tablets } from "./components/header/Tablets";
+import { Accesorios } from "./components/header/Accesorios"
 
 
 
@@ -20,7 +23,7 @@ const valorCarrito = carrito.length ;
 
 const agregarProductoAlCarrito= (producto) => {
 
-  setCarrito ([...carrito,producto]); 
+  setCarrito ([...carrito, producto]); 
         
       
         actualizarCantidad();
@@ -55,6 +58,9 @@ const vaciarCarrito= () => {
       <Route path="/category/:categoryId" element={<ItemListContainer />}></Route>
       <Route path="/item/:itemId" element={<ItemDetailContainer/>}></Route>
       <Route path="/Carrito" element={<Carrito/>}></Route>
+      <Route path="/celulares" element={<Celulares />} />
+      <Route path="/tablets" element={<Tablets />} />
+      <Route path="/accesorios" element={<Accesorios />} />
       <Route path="/*" element={<NotFound/>}></Route>
     </Routes>
     <Footer/>
