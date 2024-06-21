@@ -7,7 +7,7 @@ export const NavBar = () => {
         <nav className='nav'>
             <ul className='nav-menu'>
                 <li>
-                    <NavLink exact="true" to='/ThePhoneShop/' className='nav-link'>Inicio</NavLink>
+                    <NavLink to='/ThePhoneShop/' className='nav-link'>Inicio</NavLink>
                 </li>
                 {
                     clasificacion.map((categoria) => (
