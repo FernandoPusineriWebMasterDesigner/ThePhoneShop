@@ -322,3 +322,108 @@ body {
 }
 
 
+
+.formulario {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 400px;
+    max-width: 100%;
+    margin: 20px;
+}
+
+.formulario-contenedor {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="teléfono"],
+input[type="direccion"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="teléfono"]::placeholder,
+input[type="direccion"]::placeholder {
+    color: #999;
+}
+
+.boton-comprar {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.boton-comprar:hover {
+    background-color: #45a049;
+}
+
+
+.greeting {
+    font-size: 24px;
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.seguimiento-pedido {
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.primer-dato {
+    background-color: #e3f2fd;
+}
+
+.segundo-dato {
+    background-color: #f1f8e9;
+}
+
+.tercer-dato {
+    background-color: #fff3e0;
+}
+
+.cuarto-dato {
+    background-color: #fce4ec;
+}
+
+.boton-finalizar {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff9800;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.boton-finalizar:hover {
+    background-color: #fb8c00;
+    transform: translateY(-2px);
+}
+
+.boton-finalizar:active {
+    background-color: #f57c00;
+    transform: translateY(0);
+}
+
+

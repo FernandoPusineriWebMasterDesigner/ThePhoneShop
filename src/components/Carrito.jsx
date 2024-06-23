@@ -7,21 +7,24 @@ import { Link } from 'react-router-dom';
 
 export const Carrito = () => {
 
-    const { vaciarCarrito, carrito } = useContext(CartContext);
+    const { vaciarCarrito, carrito, setCarrito, calcularCantidadTotalCarrito } = useContext(CartContext);
 
     const botonVaciarCarrito = () => {
         
         vaciarCarrito()
     }
 
-    const total = carrito.reduce((acc, producto) => acc + producto.precio, 0);
+    const eliminarItem = (id) => {
+        setCarrito(carrito.filter(prod => prod.id !== id));
+    };
+    
 
     return (
         <div className='carrito'>
-            {carrito.map((datos, index) => <h4 key={index} className='carrito-item'>{datos.nombre} {datos.marca} {datos.precio} €</h4>)}
-            <h3 className='total-carrito'>Total: {total} €</h3>
+            {carrito.map((datos, index) => <div><h4 key={index} className='carrito-item'>{datos.nombre} {datos.marca} {datos.precio} €</h4><h6 className='contenedor-carrito-visualizacion'>Cant. {datos.cantidad} {datos.nombre} Precio: {datos.precio}</h6><button className='boton-anular' onClick={ () => eliminarItem(datos.id)}>Anular</button> </div> )}
+            <h3 className='total-carrito'>Total: {calcularCantidadTotalCarrito()} €</h3>
             <button className='vaciar-carrito-btn' onClick={botonVaciarCarrito}>Vaciar Carrito</button>
-            <Link to="/finalizar-compra">Finalizar compra</Link>
+            <Link to="/finalizar-compra" className= "boton-finalizar">Finalizar compra</Link>
         </div>
         
     )

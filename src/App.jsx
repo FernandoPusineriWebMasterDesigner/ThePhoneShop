@@ -7,8 +7,7 @@ import { ItemDetailContainer } from "./components/ItemDetailContainer";
 import { NotFound } from "./components/NotFound";
 import { Footer } from "./components/footer/Footer";
 import { Carrito } from "./components/Carrito";
-import { CartContext } from "./components/Context/CartContext";
-import { useState } from "react";
+import { CartProvider } from "./components/Context/CartContext";
 import { Celulares } from "./components/header/Celulares";
 import { Tablets } from "./components/header/Tablets";
 import { Accesorios } from "./components/header/Accesorios"
@@ -18,39 +17,13 @@ import { Checkout } from "./components/Checkout"
 
 function App() {
 
-  
-const [carrito, setCarrito] = useState([]); 
-const valorCarrito = carrito.length ;
-
-const agregarProductoAlCarrito= (producto) => {
-
-  setCarrito ([...carrito, producto]); 
-        
-      
-        actualizarCantidad();
-        
-
-}
-
-
-const actualizarCantidad= () => {
-
-  return carrito.length;
-  
-
-}
-
-const vaciarCarrito= () => {
-
-  setCarrito([]);
-}
 
   return (
 <>
 
-<CartContext.Provider value={{agregarProductoAlCarrito, actualizarCantidad, vaciarCarrito, carrito}}>
+<CartProvider>
     <BrowserRouter>
-    <Header valorModificado={valorCarrito}/>
+    <Header/>
     <Routes>
       <Route path='/ThePhoneShop/' element={
         <>
@@ -69,7 +42,7 @@ const vaciarCarrito= () => {
     </Routes>
     <Footer/>
     </BrowserRouter>
-    </CartContext.Provider>
+    </CartProvider>
 
     </>
   )

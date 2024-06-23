@@ -1,94 +1,79 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from 'react'
+import image1 from "../../../public/images/iphone.jpg";
+import image2 from "../../../public/images/s23.jpg";
+import image3 from "../../../public/images/xiaomi14.jpg";
+import image4 from "../../../public/images/ipad.jpg";
+import image5 from "../../../public/images/tabletsamsung.jpg";
+import image6 from "../../../public/images/xiaomitablet.jpg";
+import image7 from "../../../public/images/applewatch.jpg";
+import image8 from "../../../public/images/relojsamsung.jpg";
+
+export const CartContext = createContext();
+
+export const CartProvider = ({ children }) => {
+
+    const [carrito, setCarrito] = useState([]);
+
+    const images = {
+        1: image5,
+        2: image6,
+        3: image7,
+        4: image8,
+        5: image2,
+        6: image3,
+        7: image4,
+        8: image1
+    };
 
 
+    const valorCarrito = carrito.length;
 
-export const CartContext = createContext(null);
+    const actualizarCantidad = () => {
 
+        let cantidad = 0;
 
-export const CartContextProvider = ({ children }) => {
-
-
-    const [carrito, setCarrito] = useState ([])
-    const [totalItems, setTotalItems] = useState(0)
-    const [precioTotal, setPrecioTotal] = useState(0)
-
-
-    const addItem = (item,cantidad) => {
-
-                const carritoCopy = [...carrito];
-                const index = carritoCopy.findIndex(productos => productos.id === item.id)
-
-                if (index != -1) {
-
-                carritoCopy[index].cantidad = carritoCopy[index].cantidad + cantidad;
-                carritoCopy[index].subtotal = carritoCopy[index].precio * carritoCopy[index].cantidad;
-                setCarrito(carritoCopy);
+        if (carrito) {
+            for (let i = 0; i < carrito.length; i++) {
+                cantidad = carrito[i].cantidad + cantidad;
             }
+        }
 
-            else {
-                    
-                const nuevoItem = {
-
-                    ...item,
-                    cantidad,
-                    subtotal: item.precio * cantidad
-                }
-
-                setCarrito([...carrito, nuevoItem])
-                
-            }
-
-
-            const borrarItem = (id) => {
-
-                const carritoFiler = carrito.filter(item => item.id !== id);
-                setCarrito(carritoFiler)
-
-            }
-
-            const vaciarCarro = () => {
-                setCarrito ([]
-                )
-            }
-
-            const handleTotalItems = () => {
-                const nuevoTotalItems = carrito.reduce((acum, item) => acum+ item.cantidad, 0);
-                setTotalItems(nuevoTotalItems); 
-            }
-
-            const handlePrecioTotal = () => {
-                const nuevoTotalPrecio = carrito.reduce((acum,item) => acum+ item.subtotal, 0);
-                setPrecioTotal(nuevoTotalPrecio);
-            }
-
-            useEffect(() => {
-                handleTotalItems();
-                handlePrecioTotal();
-            }, [carrito])
-
-
-            const valorObjetos = {
-                carrito,
-                totalItems,
-                precioTotal,
-                addItem,
-                borrarItem,
-                vaciarCarro,
-            }
-
-            return <CartContext.Provider value={valorObjetos}>{children}</CartContext.Provider>
-
-
-
-
-
-
-
+        return cantidad;
 
 
     }
 
+    const vaciarCarrito = () => {
+
+        setCarrito([]);
+    }
 
 
+    const agregarProductoAlCarrito = (producto) => {
+        for (let i = 0; i < carrito.length; i++) {
+            if (carrito[i].id === producto.id) {
+                const nuevoCarrito = [...carrito];
+                nuevoCarrito[i].cantidad++;
+                setCarrito(nuevoCarrito);
+                console.log(nuevoCarrito);
+                return;
+            }
+        }
+        producto.cantidad = 1;
+        setCarrito([...carrito, producto]);
+        actualizarCantidad();
+    }
+
+
+    const calcularCantidadTotalCarrito = () => {
+        return carrito.reduce((acc, num) => acc + num.precio, 0);
+    }
+
+
+    return (
+        <CartContext.Provider value={{ carrito, images, valorCarrito, setCarrito, actualizarCantidad, calcularCantidadTotalCarrito, vaciarCarrito, agregarProductoAlCarrito }}>
+            {children}
+        </CartContext.Provider>
+    )
 
 }
