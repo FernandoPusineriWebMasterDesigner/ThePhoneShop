@@ -38,12 +38,12 @@ export const ItemDetailContainer = () => {
 
         getDoc(docRef)
         .then(res => {
-            setProducto({...res.data(), id: res.id});
+            setProducto({...res.data(), idf: res.id});
         })
 
-    })
+    }),[itemId]
 
-    const { id, nombre, marca, clasificacion, detalle, precio, imagen } = producto;
+    
 
     const agregarProducto = () => {
 
@@ -54,15 +54,15 @@ export const ItemDetailContainer = () => {
 
     return (
         <div className='contenedor-informacion-producto'>
-            <img src={images[imagen]} className='producto-imagen' />
+            <img src={images[producto.imagen]} className='producto-imagen' />
 
             <div className='producto-detalle'>
                 {producto ? "" : "Cargando"}
-                <h1>{marca}</h1>
-                <h2>{nombre}</h2>
-                <h3>Categoria: {clasificacion}</h3>
-                <p>{detalle}</p>
-                <p>Precio: {precio}€</p>
+                <h1>{producto.marca}</h1>
+                <h2>{producto.nombre}</h2>
+                <h3>Categoria: {producto.categoria}</h3>
+                <p>{producto.detalle}</p>
+                <p>Precio: {producto.precio}€</p>
                 <Link to='/ThePhoneShop/' >Volver a Inicio</Link>
                 <button onClick={agregarProducto}>Agregar al Carrito</button>
             </div>

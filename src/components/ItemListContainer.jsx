@@ -17,7 +17,7 @@ export const ItemListContainer = () => {
     useEffect(() => {
 
         const productosRef = collection(db, "productos");
-        const q = categoryId ? query(productosRef, where("clasificación.nombre", "==", categoryId)) : productosRef;
+        const q = categoryId ? query(productosRef, where("clasificacion.id", "==", categoryId)) : productosRef;
 
         const categoriasRef = collection(db, "categoria");
         const catQuery = categoryId && query(categoriasRef, where("id", "==", categoryId));

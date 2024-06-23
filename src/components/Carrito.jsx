@@ -13,9 +13,12 @@ export const Carrito = () => {
         vaciarCarrito()
     }
 
+    const total = carrito.reduce((acc, producto) => acc + producto.precio, 0);
+
     return (
         <div className='carrito'>
-            {carrito.map((datos) => <h4 className='carrito-item'>{datos.nombre} {datos.marca} {datos.precio} €</h4>)}
+            {carrito.map((datos, index) => <h4 key={index} className='carrito-item'>{datos.nombre} {datos.marca} {datos.precio} €</h4>)}
+            <h3 className='total-carrito'>Total: {total} €</h3>
             <button className='vaciar-carrito-btn' onClick={botonVaciarCarrito}>Vaciar Carrito</button>
         </div>
         

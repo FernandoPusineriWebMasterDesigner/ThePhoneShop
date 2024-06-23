@@ -30,7 +30,6 @@ export const Item = ({producto}) => {
         return null;
     }
 
-    const { id, imagen, nombre, marca, clasificacion } = producto;
 
     const agregarProducto = () => {
 
@@ -40,12 +39,12 @@ export const Item = ({producto}) => {
 
     return (
         <div className="producto">
-            <img src={images[imagen]} alt={`Imagen de ${nombre}`} />
+            <img src={images[producto.imagen]} alt={`Imagen de ${producto.nombre}`} />
             <div className='producto-descripcion'>
-                <h2>{nombre}</h2>
-                <h3>Marca: {marca}</h3>
-                <p>Categoria: {clasificacion}</p>
-                <Link to={`/item/${id}`}>Ampliar [+]</Link>
+                <h2>{producto.nombre}</h2>
+                <h3>Marca: {producto.marca}</h3>
+                <p>Categoria: {producto.clasificacion.nombre}</p>
+                <Link to={`/item/${producto.id}`}>Ampliar [+]</Link>
                 <button onClick={agregarProducto}>Agregar al Carrito</button>
             </div>
         </div>
