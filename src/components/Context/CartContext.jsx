@@ -50,24 +50,21 @@ export const CartProvider = ({ children }) => {
 
 
     const agregarProductoAlCarrito = (producto) => {
-        for (let i = 0; i < carrito.length; i++) {
-            if (carrito[i].id === producto.id) {
-                const nuevoCarrito = [...carrito];
-                nuevoCarrito[i].cantidad++;
-                setCarrito(nuevoCarrito);
-                console.log(nuevoCarrito);
-                return;
-            }
-        }
+        const itemIndex = carrito.findIndex(item => item.id === producto.id);
+    if (itemIndex !== -1) {
+        const nuevoCarrito = [...carrito];
+        nuevoCarrito[itemIndex].cantidad++;
+        setCarrito(nuevoCarrito);
+    } else {
         producto.cantidad = 1;
         setCarrito([...carrito, producto]);
-        actualizarCantidad();
     }
+};
 
 
     const calcularCantidadTotalCarrito = () => {
-        return carrito.reduce((acc, num) => acc + num.precio, 0);
-    }
+        return carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
+}
 
 
     return (
