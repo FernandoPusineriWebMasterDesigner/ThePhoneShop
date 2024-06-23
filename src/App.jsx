@@ -12,6 +12,7 @@ import { useState } from "react";
 import { Celulares } from "./components/header/Celulares";
 import { Tablets } from "./components/header/Tablets";
 import { Accesorios } from "./components/header/Accesorios"
+import { Checkout } from "./components/Checkout"
 
 
 
@@ -30,6 +31,7 @@ const agregarProductoAlCarrito= (producto) => {
         
 
 }
+
 
 const actualizarCantidad= () => {
 
@@ -61,7 +63,9 @@ const vaciarCarrito= () => {
       <Route path="/celulares" element={<Celulares />} />
       <Route path="/tablets" element={<Tablets />} />
       <Route path="/accesorios" element={<Accesorios />} />
+      <Route path="/finalizar-compra" element={<Checkout/>} />
       <Route path="/*" element={<NotFound/>}></Route>
+      
     </Routes>
     <Footer/>
     </BrowserRouter>

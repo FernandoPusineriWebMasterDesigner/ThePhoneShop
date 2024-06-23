@@ -50,6 +50,7 @@ export const ItemDetailContainer = () => {
         agregarProductoAlCarrito(producto);
 
     }
+    
 
 
     return (
