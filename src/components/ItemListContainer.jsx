@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom'
 import { ItemList } from './ItemList';
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebase/config";
 
 export const ItemListContainer = () => {
@@ -17,16 +17,31 @@ export const ItemListContainer = () => {
     useEffect(() => {
 
         const productosRef = collection(db, "productos");
+        const q = categoryId ? query(productosRef, where("clasificación.nombre", "==", categoryId)) : productosRef;
 
-        getDocs(productosRef)
-                    .then((res) => {
-            setProductos(
-                res.docs.map((doc) => {
-                    return {...doc.data(), id: doc.id}
+        const categoriasRef = collection(db, "categoria");
+        const catQuery = categoryId && query(categoriasRef, where("id", "==", categoryId));
+
+
+        getDocs(q)
+            .then((res) => {
+                setProductos(
+                    res.docs.map((doc) => {
+                        return { ...doc.data(), id: doc.id }
+                    })
+                )
+
+            })
+
+        if (catQuery) {
+            getDocs(catQuery)
+                .then((res) => {
+                    setTitulo(res.docs[0].data().nombre);
                 })
-            )
-            
-    })
+
+        } else {
+            setTitulo("Productos");
+        }
 
     }, [categoryId]);
 

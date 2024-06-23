@@ -12,6 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100%;
+    
 }
 
 .header {
@@ -130,6 +131,7 @@ body {
     width: 100%;
     height: 90px;
     color: rgb(241, 234, 234);
+    position: absolute;
 }
 
 .productos-contenedor {
@@ -282,14 +284,14 @@ body {
     padding: 1rem;
     background-color: rgb(56, 58, 56);
     padding: 0 15%;
-    position: absolute;
-    bottom: 0;
+    
 }
 
 .footer a {
     color: #fff;
     text-decoration: none;
     transform: translateX(-100px);
+    margin-top: 45px;
 }
 
 .footer a:hover {
@@ -310,7 +312,7 @@ body {
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease;
-    margin-top: 30px;
+    margin-top: 55px;
     margin-bottom: 25px;
 }
 
