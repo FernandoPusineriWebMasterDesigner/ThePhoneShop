@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { productos } from '../data/productos.json';
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase/config";
 import image1 from "../../public/images/iphone.jpg";
 import image2 from "../../public/images/s23.jpg";
 import image3 from "../../public/images/xiaomi14.jpg";
@@ -17,14 +18,14 @@ export const ItemDetailContainer = () => {
     
 
     const images = {
-        1: image1,
-        2: image2,
-        3: image3,
-        4: image4,
-        5: image5,
-        6: image6,
-        7: image7,
-        8: image8
+        1: image5,
+        2: image6,
+        3: image7,
+        4: image8,
+        5: image2,
+        6: image3,
+        7: image4,
+        8: image1
     };
 
     let { itemId } = useParams();
@@ -32,10 +33,17 @@ export const ItemDetailContainer = () => {
 
 
     useEffect(() => {
-        setProducto(productos.find((prod) => prod.id === parseInt(itemId)));
+        
+        const docRef = doc(db, "productos", itemId);
+
+        getDoc(docRef)
+        .then(res => {
+            setProducto({...res.data(), id: res.id});
+        })
+
     })
 
-    const { id, nombre, marca, clasificacion, detalle, precio } = producto;
+    const { id, nombre, marca, clasificacion, detalle, precio, imagen } = producto;
 
     const agregarProducto = () => {
 
@@ -46,7 +54,7 @@ export const ItemDetailContainer = () => {
 
     return (
         <div className='contenedor-informacion-producto'>
-            <img src={images[id]} className='producto-imagen' />
+            <img src={images[imagen]} className='producto-imagen' />
 
             <div className='producto-detalle'>
                 {producto ? "" : "Cargando"}

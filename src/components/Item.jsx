@@ -16,21 +16,21 @@ export const Item = ({producto}) => {
     const {agregarProductoAlCarrito}= useContext(CartContext);
 
     const images = {
-        1: image1,
-        2: image2,
-        3: image3,
-        4: image4,
-        5: image5,
-        6: image6,
-        7: image7,
-        8: image8
+        1: image5,
+        2: image6,
+        3: image7,
+        4: image8,
+        5: image2,
+        6: image3,
+        7: image4,
+        8: image1
     };
 
     if (!producto) {
         return null;
     }
 
-    const { id, nombre, marca, clasificacion } = producto;
+    const { id, imagen, nombre, marca, clasificacion } = producto;
 
     const agregarProducto = () => {
 
@@ -40,7 +40,7 @@ export const Item = ({producto}) => {
 
     return (
         <div className="producto">
-            <img src={images[id]} alt={`Imagen de ${nombre}`} />
+            <img src={images[imagen]} alt={`Imagen de ${nombre}`} />
             <div className='producto-descripcion'>
                 <h2>{nombre}</h2>
                 <h3>Marca: {marca}</h3>
