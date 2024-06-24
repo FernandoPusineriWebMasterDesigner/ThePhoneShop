@@ -42,6 +42,7 @@ export const Checkout = () => {
     return (
         <div className='formulario'>
             <form className='formulario-contenedor' onSubmit={handleSubmit(comprar)}>
+                <p>Rellene los datos para poder completar su compra </p>
                 <input className='primer-dato' type='text' placeholder='Por favor, ingrese su nombre 😊' {...register("nombre")}/>
                 <input className='segundo-dato' type='email' placeholder='Por favor, ingrese su em@il 📩' {...register("email")}/>
                 <button className='boton-comprar' type="submit">Comprar</button>
